@@ -2,15 +2,15 @@ package com.projetos.mentoria.produtosinvestimentos.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
-import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.NotBlank;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -21,6 +21,7 @@ public class ProdutoDTO {
 
     private Long codigoProduto;
 
+    @NotBlank(message = "O campo não pode estar em branco")
     private String nomeProduto;
 
     private BigDecimal valorAplicacaoMinima;
@@ -28,10 +29,10 @@ public class ProdutoDTO {
     private BigDecimal valorResgateMinimo;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDateTime dataAbertura;
+    private LocalDate dataAbertura;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDateTime dataVencimento;
+    private LocalDate dataVencimento;
 
     private  BigDecimal taxa;
 
